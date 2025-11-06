@@ -1,0 +1,212 @@
+/* styles reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* variables */
+:root {
+  --primary: #04aa6d;
+  --secondary: rgb(43, 40, 40);
+  --tertiary: #f1f1f2;
+  --forth: #fff;
+  --shadow-on-white: rgba(0, 0, 0, 0.3) 0px 2px 4px 0px;
+  --font-family: 'Lexend';
+}
+/* layout and general styles */
+
+body {
+  font-family:
+    var(--font-family),
+    -apple-system,
+    system-ui,
+    'Segoe UI',
+    sans-serif;
+  background: #f5f5f5;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  background: #f5f5f5;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 60px;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 5px;
+}
+
+header .logo img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+header .logo div {
+  max-width: 40px;
+}
+
+header .logo p {
+  font-size: 1.5rem;
+  color: var(--secondary);
+  font-weight: 900;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+nav div {
+  display: flex;
+  align-items: center;
+}
+nav a {
+  color: var(--primary);
+  font-size: 1rem;
+  border-bottom: 5px solid transparent;
+}
+
+nav a:hover {
+  border-bottom-color: var(--secondary);
+}
+
+nav .join-link,
+nav .login-link {
+  color: var(--forth);
+  background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  padding: 8px 7px;
+  border-radius: 7px;
+  font-size: 15px;
+  border: none;
+}
+
+nav .join-link:hover,
+nav .login-link:hover {
+  filter: brightness(0.9);
+  border-color: var(--primary);
+}
+
+nav .login-link svg {
+  fill: var(--forth);
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+header .user-infos {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  font-weight: 700;
+}
+
+header .user-infos svg {
+  width: 15px;
+  height: 15px;
+  fill: rgb(14, 140, 230);
+}
+
+header .user-infos .user-profile-img {
+  width: 30px;
+  height: 30px;
+  fill: var(--secondary);
+}
+
+main {
+  padding-right: 60px;
+  padding-left: 60px;
+}
+
+a {
+  text-decoration: none;
+}
+
+footer {
+  padding: 10px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+}
+
+footer a {
+  font-weight: 600;
+  color: var(--primary);
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+}
