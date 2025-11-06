@@ -1,0 +1,95 @@
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--forth);
+}
+
+.posts-container {
+  width: 700px;
+  margin-top: 15px;
+}
+
+.post-card {
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card hr {
+  align-self: center;
+  width: 630px;
+}
+.post-card svg {
+  width: 30px;
+  height: 30px;
+}
+
+.post-card .title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.separation-dot {
+  width: 4px;
+  height: 4px;
+  background-color: gray;
+  border-radius: 50%;
+}
+
+.author-part {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.author-part .added_date {
+  color: gray;
+  font-size: 14px;
+}
+.author-part .author {
+  font-weight: 600;
+  font-size: 15px;
+}
+.author-status-icon {
+  display: flex;
+  align-items: center;
+  fill: rgb(14, 140, 230);
+}
+.author-status-icon svg {
+  min-width: 15px;
+  width: 15px;
+  height: 15px;
+}
+
+.post-card .text-part {
+  margin-left: 35px;
+}
+
+.deleteBtnForm {
+  display: flex;
+  justify-content: right;
+  width: 90%;
+  align-items: center;
+}
+
+.deleteBtn {
+  width: fit-content;
+  border-radius: 10px;
+  background-color: var(--primary);
+  color: var(--forth);
+  display: flex;
+  align-items: center;
+  border: none;
+  font-size: 12px;
+  margin: 5px 0;
+  padding: 2px 5px;
+}
+
+.deleteBtn:hover {
+  filter: brightness(0.9);
+}
+.deleteBtn svg {
+  fill: var(--forth);
+  width: 20px;
+  height: 20px;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body>
+    <%- include('../partials/header') %>
+    <main>
+      <div class="posts-container">
+        <% if (locals.user) { %> <% } %> <% posts.forEach((post, index) => { %>
+        <section class="post-card">
+          <% if (locals.user && user.membership_status === true) { %>
+          <div class="author-part">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <title>account-circle</title>
+              <path
+                d="M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z"
+              />
+            </svg>
+            <p class="author"><%= post.author %></p>
+            <div class="author-status-icon">
+              <% if (post.author_is_member) { %>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <title>members icon</title>
+                <path
+                  d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"
+                />
+              </svg>
+              <% } %>
+              <% if (post.author_is_admin) { %>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <title>Club admin icon</title>
+                <path
+                  d="M12,12H19C18.47,16.11 15.72,19.78 12,20.92V12H5V6.3L12,3.19M12,1L3,5V11C3,16.55 6.84,21.73 12,23C17.16,21.73 21,16.55 21,11V5L12,1Z"
+                />
+              </svg>
+              <% } %>
+            </div>
+            <span class="separation-dot"></span>
+            <p class="added_date"><%= post.added %>.</p>
+          </div>
+          <% } %>
+          <div class="text-part">
+            <p class="title"><%= post.title %></p>
+            <p class="message"><%= post.message %></p>
+            <% if (locals.user && user.admin) { %>
+            <form
+              action="/posts/<%= post.id %>/delete"
+              method="post"
+              class="deleteBtnForm"
+            >
+              <button type="submit" class="deleteBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <title>delete</title>
+                  <path
+                    d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"
+                  />
+                </svg>
+                Delete
+              </button>
+            </form>
+            <% } %>
+          </div>
+          <% if (index !==  posts.length-1) { %>
+          <hr />
+          <% } %>
+        </section>
+
+        <% }) %>
+      </div>
+    </main>
+    <%- include('../partials/footer') %>
+  </body>
+</html>
