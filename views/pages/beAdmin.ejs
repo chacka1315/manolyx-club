@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/changeStatus.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Get an admin status to manage the club!</h1>
+      <form action="/users/beAdmin" method="post">
+        <label for="password">Enter the Manolyx club admin password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          autofocus
+          required
+        />
+        <% if (locals.errors) { %>
+        <p class="formErrors">❌ Incorrect password!</p>
+        <% } %>
+        <button type="submit">Get admin status</button>
+      </form>
+      <a href="/">Back to home🪂</a>
+    </main>
+  </body>
+</html>

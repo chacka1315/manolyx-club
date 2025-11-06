@@ -1,0 +1,38 @@
+body {
+  background-color: var(--secondary);
+  color: var(--forth);
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main a {
+  color: var(--primary);
+}
+
+main a:hover {
+  text-decoration: underline;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form button {
+  margin-top: 10px;
+}
+
+.formErrors {
+  display: block;
+  color: #fff;
+}

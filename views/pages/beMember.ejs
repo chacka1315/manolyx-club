@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/changeStatus.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Become a member now to see more!</h1>
+      <p>Members are authorized to see all posts informations.</p>
+      <form action="/users/join" method="post">
+        <label for="password">Enter the Manolyx club secret password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="It's: manolyx1234"
+          required
+        />
+        <% if (locals.error) { %>
+        <p class="formErrors"><%= error %></p>
+        <% } %>
+        <button type="submit">Get a member status</button>
+      </form>
+      <a href="/">Back to home🪂</a>
+    </main>
+  </body>
+</html>
