@@ -39,7 +39,7 @@ async function main() {
     console.log('✅ Done!');
   } catch (error) {
     console.log('❌ Error!');
-    throw err;
+    throw error;
   } finally {
     client.end();
   }
