@@ -2,7 +2,7 @@ import auth from '../middlewares/auth.js';
 import validationsChain from '../middlewares/validationsChain.js';
 import { matchedData, validationResult } from 'express-validator';
 import NotFoundError from '../errors/NotFoundError.js';
-import db from '../db/queries.js';
+import postModel from '../db/PostModel.js';
 
 const messageCreateGet = [
   auth.isAuth,
@@ -31,7 +31,7 @@ const messageCreatePost = [
     const { title, message } = matchedData(req);
     const data = { title, message, user_id: req.user.id };
     try {
-      await db.createPost(data);
+      await postModel.createPost(data);
       res.redirect('/');
     } catch (error) {
       next(error);
@@ -49,7 +49,7 @@ const deleteMessage = [
     }
 
     try {
-      await db.deletePost(Number(id));
+      await postModel.deletePost(Number(id));
       res.redirect('/');
     } catch (error) {
       next(error);

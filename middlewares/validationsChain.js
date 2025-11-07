@@ -1,5 +1,5 @@
 import { body } from 'express-validator';
-import db from '../db/queries.js';
+import userModel from '../db/UserModel.js';
 
 const emailErr = 'This email address is not valid.';
 const nameLengthErr = 'must be between  2 and 50 characters.';
@@ -14,7 +14,7 @@ const confirmationPasswordMatchPassword = (value, { req }) => {
 };
 
 const emailNotInUse = async (value) => {
-  const user = await db.findUserByUsername(value);
+  const user = await userModel.findUserByUsername(value);
   if (user) {
     throw new Error('This email has already an account.');
   }

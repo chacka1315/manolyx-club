@@ -1,12 +1,12 @@
 import { Strategy as LocalStrategy } from 'passport-local';
 import bcrypt from 'bcryptjs';
-import db from '../db/queries.js';
+import userModel from '../db/UserModel.js';
 
 export default function configurePassport(passport) {
   passport.use(
     new LocalStrategy(async (username, password, done) => {
       try {
-        const user = await db.findUserByUsername(username);
+        const user = await userModel.findUserByUsername(username);
         if (!user) {
           return done(null, false, {
             message: 'No account with that username.',
@@ -31,7 +31,7 @@ export default function configurePassport(passport) {
 
   passport.deserializeUser(async (id, done) => {
     try {
-      const user = await db.findUserById(id);
+      const user = await userModel.findUserById(id);
       return done(null, user);
     } catch (error) {
       return done(error);

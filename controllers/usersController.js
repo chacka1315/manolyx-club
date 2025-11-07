@@ -1,4 +1,4 @@
-import db from '../db/queries.js';
+import userModel from '../db/UserModel.js';
 import validationsChain from '../middlewares/validationsChain.js';
 import { validationResult, matchedData, body } from 'express-validator';
 import bcrypt from 'bcryptjs';
@@ -35,7 +35,7 @@ const signUpPost = [
         lastname,
         password: hashedPassword,
       };
-      await db.createUser(userData);
+      await userModel.createUser(userData);
       res.redirect('/users/login');
     } catch (error) {
       next(error);
@@ -120,7 +120,7 @@ const joinClubPost = [
     }
 
     try {
-      await db.makeMember(req.user.id);
+      await userModel.makeMember(req.user.id);
       res.redirect('/');
     } catch (error) {
       next(error);
@@ -160,7 +160,7 @@ const beAdminPost = [
     }
 
     try {
-      await db.makeAdmin(req.user.id);
+      await userModel.makeAdmin(req.user.id);
       res.redirect('/');
     } catch (error) {
       next(error);
