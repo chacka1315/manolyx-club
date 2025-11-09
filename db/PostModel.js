@@ -8,7 +8,7 @@ const cleanAddedDate = (rows) => {
       includeSeconds: true,
     });
 
-    if (date.split(' ')[2] === 'days') {
+    if (date.split(' ')[1] === 'days') {
       date = format(row.added, 'PP').split(',')[0];
     }
     return { ...row, added: date };
