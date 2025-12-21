@@ -9,7 +9,7 @@ Members Only is a simple social space where:
 - Admin can manage content
 This project demonstrates how to build secure parts of a web app that depend on whether a user is logged in. 
 
-## 🎨 Live preview
+## 🎨 Live preview  ( Non-reponsive)
 The server will take a few second to start as it'is deployed on free plan (Le serveur prendra un peu de temps pour demarer car l'app est deployé sur un plan gratuit de Render).
 [See the apllication (Voir l'application)](https://manolyx-club.onrender.com/)
 
